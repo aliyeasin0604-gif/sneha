@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-main: #7B4FD0;
+  --color-brand-hover: #683cb8;
+  --color-brand-light: #FAF7FF;
+  --color-brand-card: #F2ECFD;
+  --color-brand-accent: #E6DBF9;
+  --color-brand-border: #DDD0F7;
+  --color-brand-text: #1E1A2B;
+  --color-brand-muted: #524B66;
+
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-handwritten: "Caveat", cursive;
+}
+
+body {
+  color: #1E1A2B;
+  background-color: #FFFFFF;
+  font-family: var(--font-sans);
+}
+
+/* Arch image frame */
+.arch-frame {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+/* Orbit badge animations */
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit-container {
+  animation: orbitRotate 30s linear infinite;
+}
+
+.counter-rotate {
+  animation: counterRotate 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-container,
+  .counter-rotate {
+    animation: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Curved side panel for hero */
+@media (min-width: 1024px) {
+  .hero-curved-panel {
+    border-top-left-radius: 110px;
+    border-bottom-left-radius: 110px;
+  }
+}
